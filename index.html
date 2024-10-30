@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Touch Secure Access</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <video autoplay muted loop id="backgroundVideo" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -1; object-fit: cover; filter: blur(1px);">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-colorful-balloons-floating-in-the-air-48625-large.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="logo">
+        <div class="safe-o">
+            <div class="safe-dial">
+                <div class="dial-marker"></div>
+            </div>
+        </div>
+        <span class="logo-text">neTouchVault</span>
+    </div>
+    
+    <div class="welcome-text">
+        <h2>Welcome to One Touch Vault</h2>
+        <p>Where you can relax and allow One Touch Vault to bring all of your internet needs into one place.</p>
+    </div>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <div class="tab active" onclick="showTab('login')">Login</div>
+            <div class="tab" onclick="showTab('signup')">Create Account</div>
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="form-group" style="display: flex; align-items: center; gap: 8px;">
+                <input type="checkbox" id="rememberMe" name="rememberMe">
+                <label for="rememberMe" style="margin-bottom: 0;">Remember Me</label>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form>
+
+        <form id="signupForm">
+            <div class="social-login">
+                <button type="button" class="social-btn google-btn" onclick="socialLogin('google')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#DB4437">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5.64 14.64c-1.56 1.56-3.64 2.42-5.84 2.42s-4.28-.86-5.84-2.42C4.36 15.08 3.5 13 3.5 10.8c0-2.2.86-4.28 2.42-5.84C7.48 3.36 9.56 2.5 11.76 2.5s4.28.86 5.84 2.42c1.56 1.56 2.42 3.64 2.42 5.84s-.86 4.28-2.42 5.84z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+                <button type="button" class="social-btn facebook-btn" onclick="socialLogin('facebook')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#4267B2">
+                        <path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h8.62v-7h-2.35v-2.69h2.35v-2a3.27 3.27 0 0 1 3.49-3.59c.99.01 1.85.07 2.1.1v2.44h-1.44c-1.13 0-1.35.54-1.35 1.32v1.73h2.69l-.35 2.69h-2.34V21H20a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1z"/>
+                    </svg>
+                    Continue with Facebook
+                </button>
+            </div>
+            <div class="divider">
+                <span>or</span>
+            </div>
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" name="confirmPassword" required>
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+    </div>
+
+    <div class="dashboard-container">
+        <div class="group-section">
+            <h2>Social Media</h2>
+            <div class="link-group">
+            <a href="https://www.facebook.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#1877f2">
+                    <path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
+                </svg>
+                Facebook
+            </a>
+            <a href="https://www.twitter.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#1da1f2">
+                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                </svg>
+                Twitter
+            </a>
+            <a href="https://www.instagram.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#e4405f">
+                    <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.897 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.897-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                </svg>
+                Instagram
+            </a>
+            <a href="https://www.tiktok.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                </svg>
+                TikTok
+            </a>
+        </div>
+
+        </div>
+        <div class="group-section">
+            <h2>Security</h2>
+            <div class="link-group">
+            <a href="https://www.bankofamerica.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#E21936">
+                    <path d="M12 0L2 5v2h20V5L12 0zm-9 8v12h18V8H3zm15 10H6v-2h12v2z"/>
+                </svg>
+                Bank of America
+            </a>
+            <a href="https://www.dropbox.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#0061FF">
+                    <path d="M12 14.56l4.07-3.93L24 14.56l-7.93 3.93L24 22.42 12 16.63 0 22.42l7.93-3.93L0 14.56l7.93-3.93L12 14.56z M12 0l12 7.93-7.93 3.93L12 7.93 7.93 11.86 0 7.93 12 0z"/>
+                </svg>
+                Dropbox
+            </a>
+            <a href="https://onedrive.live.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#0078D4">
+                    <path d="M1.571 15.714l4.286 2.857L24 15.714l-4.286-2.857L1.571 15.714z M1.571 8l4.286 2.857L24 8 19.714 5.143 1.571 8z"/>
+                </svg>
+                OneDrive
+            </a>
+            <a href="https://www.wikipedia.org" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.803-.24l-.119-.032v-.469l.049-.045h3.777l.044.045v.469c0 .105-.074.15-.225.15l-.308.047c-.56.045-.683.096-1.014.544-.062.089-.375.828-.566 1.254l-1.856 3.837 1.834 3.781c.91 1.919.799 1.834 2.211 1.92l.165.031v.479l-.058.039h-4.229l-.058-.04v-.478l.186-.029c.585-.075.697-.121.697-.262 0-.091-.048-.224-.119-.458l-1.52-3.322-2.54 5.054c-.08.158-.101.237-.101.284 0 .119.162.206.483.239l.133.029v.479l-.057.039h-3.352l-.058-.04v-.478l.186-.029c.586-.075.697-.121.697-.262 0-.091-.048-.224-.119-.458z"/>
+                </svg>
+                Wikipedia
+            </a>
+        </div>
+
+        </div>
+        <div class="group-section">
+            <h2>Movie Gallery</h2>
+            <div class="link-group">
+            <a href="https://www.netflix.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#E50914">
+                    <path d="M5.398 0v24l6.87-12V0H5.398zm7.174 0v24l6.43-12V0h-6.43z"/>
+            </svg>
+                Netflix
+            </a>
+            <a href="https://www.amazon.com/prime" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#00A8E1">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22c-5.523 0-10-4.477-10-10S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z M10 7v10l6-5z"/>
+                </svg>
+                Prime
+            </a>
+            <a href="https://www.hbomax.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M2.085 0v24h4.828v-9.414h3.31c5.133 0 8.892-2.773 8.892-7.293C19.115 2.773 15.356 0 10.223 0H2.085zm4.828 4.414h2.794c2.794 0 4.655 1.379 4.655 3.879 0 2.5-1.862 3.879-4.655 3.879H6.913V4.414z"/>
+            </svg>
+                HBO
+            </a>
+            <a href="https://www.youtube.com" class="link-item" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF0000">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                </svg>
+                YouTube
+            </a>
+        </div>
+
+        </div>
+        <div class="group-section">
+            <h2>Games</h2>
+            <div class="link-group">
+            <a href="https://secondlife.com" class="link-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#008080">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+                </svg>
+                SecondLife
+            </a>
+            <a href="https://www.pogo.com" class="link-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF6B6B">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                </svg>
+                Pogo
+            </a>
+            <a href="https://www.chess.com" class="link-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+                    <path d="M12 2c1.1 0 2 .9 2 2 0 .73-.41 1.38-1 1.72v1.78h2v2h-2v2h2v2h-2v2h2v2h-2v1.78c.59.34 1 .99 1 1.72 0 1.1-.9 2-2 2s-2-.9-2-2c0-.73.41-1.38 1-1.72V17h-2v-2h2v-2h-2v-2h2V9h-2V7h2V5.72c-.59-.34-1-.99-1-1.72 0-1.1.9-2 2-2z"/>
+                </svg>
+                Chess
+            </a>
+            <a href="https://mobile-legends.com" class="link-item">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFD700">
+                    <path d="M12 2L9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2z"/>
+                </svg>
+                Mobile Legends
+            </a>
+            </div>
+        </div>
+
+        <div class="group-section">
+            <h2>Learn & Development</h2>
+            <div class="link-group">
+                <a href="https://www.khanacademy.org/math" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#14BF96">
+                        <path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm3 3h6v2H9V9zm0 3h6v2H9v-2z"/>
+                    </svg>
+                    Math
+                </a>
+                <a href="https://www.homestudies.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF6B6B">
+                        <path d="M12 3L1 9l11 6l9-4.91V17h2V9L12 3z M17 15.5v-3l-5 2.7l-5-2.7v3l5 2.7l5-2.7z"/>
+                    </svg>
+                    Home Studies
+                </a>
+                <a href="https://www.groomingacademy.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#9B59B6">
+                        <path d="M20 7h-4-V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zM9 4h6v3H9V4zm11 16H4V9h16v11z"/>
+                    </svg>
+                    Grooming
+                </a>
+                <a href="https://www.babycare.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#3498DB">
+                        <path d="M12 2a3 3 0 0 1 3 3v1h2a4 4 0 0 1 4 4v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-9a4 4 0 0 1 4-4h2V5a3 3 0 0 1 3-3zm0 2a1 1 0 0 0-1 1v1h2V5a1 1 0 0 0-1-1z"/>
+                    </svg>
+                    Babies
+                </a>
+            </div>
+        </div>
+
+        <div class="group-section">
+            <h2>Health and Nutrition</h2>
+            <div class="link-group">
+                <a href="https://www.who.int" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#2ECC71">
+                        <path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2zm0 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1 3h2v4h4v2h-4v4h-2v-4H7v-2h4V7z"/>
+                    </svg>
+                    World Health
+                </a>
+                <a href="https://www.burnbootcamp.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#E74C3C">
+                        <path d="M17 5c-1.1 0-2 .9-2 2v2h4V7c0-1.1-.9-2-2-2zM7 5c-1.1 0-2 .9-2 2v2h4V7c0-1.1-.9-2-2-2zM12 2c-1.1 0-2 .9-2 2v2h4V4c0-1.1-.9-2-2-2zm2 16H8c-2.21 0-4-1.79-4-4v-1h2v1c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-1h2v1c0 2.21-1.79 4-4 4z"/>
+                    </svg>
+                    Burn Bootcamp
+                </a>
+                <a href="https://www.fitnessblog.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#F1C40F">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76zM9 13c0-1.66 1.34-3 3-3s3 1.34 3 3-1.34 3-3 3-3-1.34-3-3z"/>
+                    </svg>
+                    Fitness Blog
+                </a>
+                <a href="https://www.familybold.com" class="link-item">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#E67E22">
+                        <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.01 2.01 0 0 0 18 7h-.06c-.67 0-1.27.33-1.63.84L12 14.28l-4.31-6.44A1.99 1.99 0 0 0 5.06 7H5c-.98 0-1.81.62-2.13 1.37L.32 16H2.8v6h2.5v-5h2.5v5h2.5v-6h2.5v6h2.5v-5h2.5v5h2.5z"/>
+                    </svg>
+                    Family Bold
+                </a>
+            </div>
+        </div>
+
+        <div class="group-section">
+            <h2>Members Profile</h2>
+            <div class="link-group">
+                <a href="#" class="link-item" onclick="openContacts()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#4CAF50">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0-6c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm0 7c-2.67 0-8 1.34-8 4v3h16v-3c0-2.66-5.33-4-8-4zm6 5H6v-.99c.2-.72 3.3-2.01 6-2.01s5.8 1.29 6 2v1z"/>
+                    </svg>
+                    Contacts
+                </a>
+                <a href="#" class="link-item" onclick="openImageUpload()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FF9800">
+                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                    </svg>
+                    Upload Images
+                </a>
+                <a href="#" class="link-item" onclick="openChat()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#2196F3">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                    Chat
+                </a>
+                <a href="#" class="link-item" onclick="openVideo()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#E91E63">
+                        <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                    </svg>
+                    Video
+                </a>
+                <a href="#" class="link-item" onclick="openStorage()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#9C27B0">
+                        <path d="M20 6h-8l-2-2H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM12 16.5l-4-4h8l-4 4z"/>
+                    </svg>
+                    Storage
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
