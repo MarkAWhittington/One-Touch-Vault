@@ -27,6 +27,7 @@
 
 body {
     background: rgba(0, 0, 0, 0.5);
+    background-color: lightblue;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
